@@ -1,0 +1,10 @@
+'Ttree.Taxonomy:Document.Subterm':
+  superTypes:
+    'Ttree.Taxonomy:Mixin.Term': true
+  constraints:
+    nodeTypes:
+      'Neos.Neos:Document': false
+      'Ttree.Taxonomy:Document.Term': false
+      'Ttree.Taxonomy:Document.Subterm': true
+  ui:
+    label: 'Subterm'

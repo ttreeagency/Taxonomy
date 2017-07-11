@@ -1,0 +1,19 @@
+{
+    "name": "ttree/taxonomy",
+    "type": "neos-package",
+    "description": "Low level Taxonomy for your Neos CMS project.",
+    "license": "MIT",
+    "require": {
+        "neos/neos": ">3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ttree\\Taxonomy\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Ttree.Taxonomy"
+        }
+    }
+}

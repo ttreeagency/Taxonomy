@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Ttree.Strapping" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="groups.taxonomy" xml:space="preserve">
+				<source>Taxonomy</source>
+			</trans-unit>
+            <trans-unit id="properties.terms" xml:space="preserve">
+				<source>Terms</source>
+			</trans-unit>
+            <trans-unit id="properties.subterms" xml:space="preserve">
+				<source>Subterms</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

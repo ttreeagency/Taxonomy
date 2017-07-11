@@ -1,0 +1,16 @@
+'Ttree.Taxonomy:Mixin.Term':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Shortcut': true
+  ui:
+    icon: 'icon-tag'
+  properties:
+    targetMode:
+      defaultValue: 'parentNode'
+      ui:
+        inspector:
+          group: ~
+    target:
+      ui:
+        inspector:
+          group: ~

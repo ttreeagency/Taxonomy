@@ -1,0 +1,10 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Ttree.Taxonomy: true
+    userInterface:
+      translation:
+        autoInclude:
+          Ttree.Taxonomy:
+            - 'NodeTypes/**/*'
