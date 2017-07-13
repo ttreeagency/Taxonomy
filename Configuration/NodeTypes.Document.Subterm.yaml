@@ -1,4 +1,5 @@
 'Ttree.Taxonomy:Document.Subterm':
+  label: "${q(node).property('title') + ' (' + q(node).closest('[instanceof Ttree.Taxonomy:Document.Term]').first().property('title') + ')'}"
   superTypes:
     'Ttree.Taxonomy:Mixin.Term': true
   constraints:
