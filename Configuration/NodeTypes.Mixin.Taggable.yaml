@@ -8,6 +8,11 @@
   properties:
     terms:
       type: references
+      search:
+        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(value, 'title')}"
+        elasticSearchMapping:
+          type: 'string'
+          include_in_all: true
       ui:
         label: i18n
         inspector:
@@ -16,6 +21,11 @@
             nodeTypes: ['Ttree.Taxonomy:Document.Term']
     subterms:
       type: references
+      search:
+        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(value, 'title')}"
+        elasticSearchMapping:
+          type: 'string'
+          include_in_all: true
       ui:
         label: i18n
         inspector:
