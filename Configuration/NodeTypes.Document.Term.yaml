@@ -7,4 +7,4 @@
       'Ttree.Taxonomy:Document.Subterm': true
   ui:
     label: 'Term'
-    icon: 'icon-tags'
+    icon: 'icon-tags taxonomy-icon-blue'

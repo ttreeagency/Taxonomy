@@ -1,3 +1,4 @@
 namespace: Fusion = Neos.Fusion
+namespace: StyleSheet = Ttree.StyleSheet
 
 include: **/*

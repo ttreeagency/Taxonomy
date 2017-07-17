@@ -3,7 +3,7 @@
   superTypes:
     'Neos.Neos:Shortcut': true
   ui:
-    icon: 'icon-tag'
+    icon: 'icon-tag taxonomy-icon-blue'
   properties:
     targetMode:
       defaultValue: 'parentNode'

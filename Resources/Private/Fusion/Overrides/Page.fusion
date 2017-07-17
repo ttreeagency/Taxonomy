@@ -1,0 +1,12 @@
+prototype(Neos.Neos:Page) {
+	head {
+		stylesheets.taxonomyBackend = Neos.Fusion:Value {
+			@position = 'before closingBodyTag'
+			value = StyleSheet:Resource {
+				uri = 'resource://Ttree.Taxonomy/Public/Styles/Backend.css'
+			}
+
+			@if.onlyRenderWhenNotInLiveWorkspace = ${documentNode.context.inBackend}
+		}
+	}
+}
