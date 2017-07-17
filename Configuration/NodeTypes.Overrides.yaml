@@ -2,3 +2,4 @@
   constraints:
     nodeTypes:
       'Ttree.Taxonomy:Document.Term': false
+      'Ttree.Taxonomy:Document.Subterm': false
