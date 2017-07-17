@@ -8,3 +8,8 @@ Neos:
         autoInclude:
           Ttree.Taxonomy:
             - 'NodeTypes/**/*'
+
+  ContentRepository:
+    Search:
+      defaultContext:
+        TaxonomyIndexing: Ttree\Taxonomy\Eel\IndexingHelper
