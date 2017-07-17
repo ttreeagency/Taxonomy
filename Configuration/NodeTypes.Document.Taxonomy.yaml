@@ -1,0 +1,20 @@
+'Ttree.Taxonomy:Document.Taxonomy':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+  constraints:
+    nodeTypes:
+      'Neos.Neos:Document': false
+      'Ttree.Taxonomy:Document.Term': true
+  ui:
+    label: 'Taxonomy'
+    icon: 'icon-folder'
+  properties:
+    targetMode:
+      defaultValue: 'firstChildNode'
+      ui:
+        inspector:
+          group: ~
+    target:
+      ui:
+        inspector:
+          group: ~

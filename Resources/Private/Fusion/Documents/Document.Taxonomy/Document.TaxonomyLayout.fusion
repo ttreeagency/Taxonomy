@@ -1,0 +1,3 @@
+prototype(Ttree.Taxonomy:Document.TaxonomyLayout) < prototype(Ttree.Strapping:Document.DefaultLayout) {
+    body = Neos.Neos:Shortcut
+}

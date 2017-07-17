@@ -6,6 +6,41 @@
         taxonomy:
           label: i18n
   properties:
+
+    __suggestTerms:
+      search:
+        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(q(node).property('terms'), 'title')}"
+        elasticSearchMapping:
+          type: completion
+          analyzer: simple
+          search_analyzer: simple
+          payloads: false
+
+    __suggestSubterms:
+      search:
+        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(q(node).property('subterms'), 'title')}"
+        elasticSearchMapping:
+          type: completion
+          analyzer: simple
+          search_analyzer: simple
+          payloads: false
+
+    __suggestExpandedTerms:
+      search:
+        indexing: "${TaxonomyIndexing.expandTermSuggest(q(node).property('subterms'), 'title')}"
+        elasticSearchMapping:
+          type: completion
+          analyzer: simple
+          search_analyzer: simple
+          payloads: true
+
+    __expandedTerms:
+      search:
+        indexing: "${TaxonomyIndexing.expandTerm(q(node).property('subterms'), 'title')}"
+        elasticSearchMapping:
+          type: 'string'
+          include_in_all: true
+
     terms:
       type: references
       search:
