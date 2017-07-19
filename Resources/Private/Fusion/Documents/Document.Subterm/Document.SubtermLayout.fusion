@@ -1,3 +1,0 @@
-prototype(Ttree.Taxonomy:Document.SubtermLayout) < prototype(Page) {
-    body = Neos.Neos:Shortcut
-}

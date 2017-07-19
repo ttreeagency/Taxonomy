@@ -4,7 +4,7 @@
   constraints:
     nodeTypes:
       'Neos.Neos:Document': false
-      'Ttree.Taxonomy:Document.Subterm': true
+      'Ttree.Taxonomy:Document.Term': true
   ui:
     label: 'Term'
     icon: 'icon-tags taxonomy-icon-blue'
