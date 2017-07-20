@@ -1,3 +1,9 @@
+Ttree:
+  Taxonomy:
+    managedVocabulary:
+      enabled: false
+      dimensionsMapping: []
+
 Neos:
   Neos:
     fusion:

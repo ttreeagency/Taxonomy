@@ -5,7 +5,8 @@
     "license": "MIT",
     "require": {
         "neos/neos": ">3.0",
-        "ttree/stylesheet": "^3.0"
+        "ttree/stylesheet": "^3.0",
+        "cocur/slugify": "^2.5"
     },
     "autoload": {
         "psr-4": {
