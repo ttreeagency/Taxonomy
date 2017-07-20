@@ -75,7 +75,7 @@ class IndexingHelper implements ProtectedContextAwareInterface
     protected function termRootline(NodeInterface $node): array
     {
         /** @var array $rootline */
-        $rootline = (new FlowQuery([$node]))->parents('[instanceof Ttree.Taxonomy:Mixin.Term]')->get();
+        $rootline = (new FlowQuery([$node]))->parents('[instanceof Ttree.Taxonomy:Document.Term]')->get();
         \array_unshift($rootline, $node);
         return \array_reverse($rootline);
     }

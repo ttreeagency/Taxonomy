@@ -1,10 +1,20 @@
 'Ttree.Taxonomy:Document.Term':
   superTypes:
-    'Ttree.Taxonomy:Mixin.Term': true
+    'Neos.Neos:Shortcut': true
   constraints:
     nodeTypes:
       'Neos.Neos:Document': false
       'Ttree.Taxonomy:Document.Term': true
   ui:
     label: 'Term'
-    icon: 'icon-tags taxonomy-icon-blue'
+    icon: 'icon-tag taxonomy-icon-blue'
+  properties:
+    targetMode:
+      defaultValue: 'parentNode'
+      ui:
+        inspector:
+          group: ~
+    target:
+      ui:
+        inspector:
+          group: ~
