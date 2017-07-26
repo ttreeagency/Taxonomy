@@ -16,18 +16,9 @@
           search_analyzer: simple
           payloads: false
 
-    __suggestSubterms:
-      search:
-        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(q(node).property('subterms'), 'title')}"
-        elasticSearchMapping:
-          type: completion
-          analyzer: simple
-          search_analyzer: simple
-          payloads: false
-
     __suggestExpandedTerms:
       search:
-        indexing: "${TaxonomyIndexing.expandTermSuggest(q(node).property('subterms'), 'title')}"
+        indexing: "${TaxonomyIndexing.expandTermSuggest(q(node).property('terms'), 'title')}"
         elasticSearchMapping:
           type: completion
           analyzer: simple
@@ -36,7 +27,7 @@
 
     __expandedTerms:
       search:
-        indexing: "${TaxonomyIndexing.expandTerm(q(node).property('subterms'), 'title')}"
+        indexing: "${TaxonomyIndexing.expandTerm(q(node).property('terms'), 'title')}"
         elasticSearchMapping:
           type: 'string'
           include_in_all: true
@@ -47,6 +38,8 @@
         indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeProperty(value, 'title')}"
         elasticSearchMapping:
           type: 'string'
+          analyzer: 'taxonomy_taxonomy_text'
+          search_analyzer: 'taxonomy_taxonomy_text'
           include_in_all: true
       ui:
         label: i18n
