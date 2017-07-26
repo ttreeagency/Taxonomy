@@ -29,7 +29,11 @@ final class ManagedVocabulary
             'separator' => '_'
         ]);
 
-        $processTerm = function(NodeInterface $term) use ($slug, &$processTerm, &$autoPhraseSettings, &$vocabularySettings) {
+        $titleSlug = new Slugify([
+            'separator' => ' '
+        ]);
+
+        $processTerm = function(NodeInterface $term) use ($slug, $titleSlug, &$processTerm, &$autoPhraseSettings, &$vocabularySettings) {
             $parents = (new FlowQuery([$term]))->parentsUntil('[instanceof Ttree.Taxonomy:Document.Taxonomy]')->get();
 
             $title = trim($term->getProperty('title'));
@@ -46,7 +50,11 @@ final class ManagedVocabulary
             }
             $termSlug = $slug->slugify($title);
 
-            $autoPhraseSettings[] = $title . ' => ' . $termSlug;
+
+            $title = $titleSlug->slugify($title);
+            if ($title !== $termSlug) {
+                $autoPhraseSettings[$title] = $termSlug;
+            }
 
             if (count($parents) > 0) {
                 $autophrasingParents = [$termSlug];
@@ -81,7 +89,11 @@ final class ManagedVocabulary
         if ($autoPhraseSettings !== []) {
             $filter[$autoPhraseFilter] = [
                 'type' => 'synonym',
-                'synonyms' => $autoPhraseSettings
+                'synonyms' => \array_values(
+                    \array_map(function ($key, $value) {
+                        return \vsprintf('%s => %s', [$key, $value]);
+                    }, array_keys($autoPhraseSettings), $autoPhraseSettings)
+                )
             ];
         }
         if ($vocabularySettings !== []) {
@@ -91,13 +103,18 @@ final class ManagedVocabulary
             ];
         }
 
+        $vocabularyFilters = [
+            'lowercase',
+            'asciifolding'
+        ];
+
         return [
             'analysis' => [
                 'filter' => $filter,
                 'analyzer' => [
                     $vocabularyAnalysis => [
                         'tokenizer' => 'standard',
-                        'filter' => \array_keys($filter)
+                        'filter' => \array_merge($vocabularyFilters, \array_keys($filter))
                     ]
                 ]
             ]
