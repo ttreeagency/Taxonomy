@@ -12,7 +12,7 @@ Neos:
           'Ttree.Taxonomy:Backend':
             resource: 'resource://Ttree.Taxonomy/Public/Styles/Backend.css'
             position: 'end'
-            
+
     fusion:
       autoInclude:
         Ttree.Taxonomy: true
