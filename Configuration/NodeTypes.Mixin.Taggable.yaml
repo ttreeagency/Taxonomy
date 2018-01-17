@@ -32,6 +32,14 @@
           type: 'string'
           include_in_all: true
 
+    __termIdentifiers:
+      search:
+        indexing: "${Indexing.convertArrayOfNodesToArrayOfNodeIdentifiers(q(node).property('terms'))}"
+        elasticSearchMapping:
+          type: 'string'
+          index: not_analyzed
+          include_in_all: true
+
     terms:
       type: references
       search:

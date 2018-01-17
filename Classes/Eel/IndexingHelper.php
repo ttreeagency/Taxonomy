@@ -39,12 +39,11 @@ class IndexingHelper implements ProtectedContextAwareInterface
         foreach ($nodes as $node) {
             $rootline = $this->termRootline($node);
             $nodeProperties[] = [
-                'input' => array_map(function (NodeInterface $node) use ($propertyName) {
-                    return $node->getProperty($propertyName);
-                }, $rootline),
+                'input' => $this->explodedInput($rootline, $propertyName),
+                'weight' => count($rootline) * 10,
                 'output' => $this->termRootlineToPath($rootline, $propertyName),
                 'payload' => [
-                    'level' => 1,
+                    'level' => count($rootline),
                     'path' => array_map(function (NodeInterface $node) use ($propertyName) {
                         return [
                             'identifier' => $node->getIdentifier(),
@@ -58,6 +57,26 @@ class IndexingHelper implements ProtectedContextAwareInterface
         return $nodeProperties;
     }
 
+    public function explodedInput(array $rootline, string $propertyName): array
+    {
+        $segments = array_map(function (NodeInterface $node) use ($propertyName) {
+            return trim($node->getProperty($propertyName));
+        }, $rootline);
+
+        $wordList = \implode(' ', $segments);
+        $wordList = \str_replace(["'", "`", "-"], ' ', $wordList);
+        $wordList = \array_filter(\explode(' ', $wordList));
+
+        foreach ($wordList as $word) {
+            if (\mb_strlen($word) <= 3) {
+                continue;
+            }
+            $segments[] = $word;
+        }
+
+        return $segments;
+    }
+
     public function allowsCallOfMethod($methodName): bool
     {
         return true;
@@ -69,6 +88,7 @@ class IndexingHelper implements ProtectedContextAwareInterface
         foreach ($rootline as $node) {
             $path[] = $node->getProperty($propertyName);
         }
+
         return \implode(' / ', $path);
     }
 
