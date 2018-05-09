@@ -7,7 +7,7 @@
       'Ttree.Taxonomy:Document.Term': true
   ui:
     label: 'Term'
-    icon: 'icon-tag taxonomy-icon-blue'
+    icon: 'icon-tag'
   properties:
     targetMode:
       defaultValue: 'parentNode'
