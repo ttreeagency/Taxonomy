@@ -4,7 +4,7 @@
     "description": "Low level Taxonomy for your Neos CMS project.",
     "license": "MIT",
     "require": {
-        "neos/neos": ">3.0",
+        "neos/neos": "^3.0 || ^4.0",
         "ttree/stylesheet": "^3.0",
         "cocur/slugify": "^2.5"
     },
